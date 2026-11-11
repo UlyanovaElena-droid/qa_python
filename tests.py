@@ -79,6 +79,15 @@ class TestBooksCollector:
         assert collector.get_books_for_children() == []
 
     # 7 Тест для add_book_in_favorites
+    def test_add_book_in_favorites_success(self):
+        collector = BooksCollector()
+        collector.add_new_book('Термоядерный синтез Древнего Рима')
+        collector.add_book_in_favorites('Термоядерный синтез Древнего Рима')
+        
+        assert 'Термоядерный синтез Древнего Рима' in collector.favorites
+        assert len(collector.favorites) == 1
+
+
     def test_add_book_in_favorites_duplicate(self):
         collector = BooksCollector()
         collector.add_new_book('Термоядерный синтез Древнего Рима')
